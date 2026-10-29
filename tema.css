@@ -1,0 +1,47 @@
+/* Tokens compartidos por las cinco plantillas: dos estilos, html[data-estilo="1"] Cobalto y html[data-estilo="2"] Neón.
+   Cada página los usa con sus propios nombres. Los mismos códigos de color que ../branding.css. */
+[data-estilo="1"] {
+  --t-bg: #FDFEFF; --t-bg-grad: linear-gradient(180deg, #FFFFFF 0%, #F3F6FC 55%, #E9EFFA 100%);
+  --t-surf: #FFFFFF; --t-surf2: #EEF3FC;
+  --t-ink: #0B1B3F; --t-mut: #4A5878; --t-line: rgba(11, 27, 63, .16);
+  --t-acc: #1558C9; --t-acc2: #FFC21A; --t-on-acc: #FFFFFF; --t-acc-text: #1558C9;
+  --t-dark: #0A2B6E; --t-on-dark: #F2F5FF; --t-dark-mut: rgba(242, 245, 255, .74);
+  --t-fd: 'Outfit', system-ui, sans-serif; --t-fb: 'Outfit', system-ui, sans-serif; --t-fi: 'Instrument Serif', Georgia, serif;
+  --t-hw: 300; --t-case: none; --t-tr: -.03em; --t-scale: 1; --t-em-style: italic; --t-em-font: 'Instrument Serif', Georgia, serif; --t-em-size: 1.1em;
+  --t-g1: linear-gradient(140deg, #BBD1FF, #1558C9 58%, #0A2B6E);
+  --t-g2: linear-gradient(140deg, #FFEBAE, #FFC21A 55%, #8A5B00);
+  --t-g3: linear-gradient(140deg, #DDE8FF, #5B8CFF 58%, #12265E);
+  --t-g4: linear-gradient(140deg, #C8F0FF, #2FA8E8 58%, #082B4A);
+  --t-g5: linear-gradient(140deg, #EDF2FF, #7C9CFF 58%, #1A2A7A);
+  --t-g6: linear-gradient(140deg, #FFF4C8, #FFB800 55%, #5A3B00);
+  --t-film: #0B1B3F; --t-flat: #1558C9; --t-flat-ink: #071438; --t-flat-cream: #F2F6FF;
+  --t-grain: .05; --t-shadow: rgba(11, 27, 63, .35);
+}
+[data-estilo="2"] {
+  --t-bg: #0A0A0A; --t-bg-grad: linear-gradient(180deg, #0A0A0A 0%, #12091A 100%);
+  --t-surf: #141414; --t-surf2: #1D1D1D;
+  --t-ink: #F3F4F8; --t-mut: #A2A8BC; --t-line: rgba(243, 244, 248, .18);
+  --t-acc: #FF2D95; --t-acc2: #35BFF5; --t-on-acc: #0A0A0A; --t-acc-text: #FF6FB5;
+  --t-dark: #141414; --t-on-dark: #F3F4F8; --t-dark-mut: rgba(243, 244, 248, .74);
+  --t-fd: 'Sora', system-ui, sans-serif; --t-fb: 'Manrope', system-ui, sans-serif; --t-fi: 'Sora', system-ui, sans-serif;
+  --t-hw: 800; --t-case: uppercase; --t-tr: -.02em; --t-scale: .78; --t-em-style: normal; --t-em-font: 'Sora', system-ui, sans-serif; --t-em-size: 1em;
+  --t-g1: linear-gradient(140deg, #35BFF5, #7A5CFF 58%, #1A0A3A);
+  --t-g2: linear-gradient(140deg, #FF8AC4, #FF2D95 55%, #4A0A2A);
+  --t-g3: linear-gradient(140deg, #9AF0FF, #0078A7 58%, #041A2A);
+  --t-g4: linear-gradient(140deg, #D6A8FF, #8A3CFF 58%, #1A0A3A);
+  --t-g5: linear-gradient(140deg, #FFB3DD, #C0268A 58%, #2A0820);
+  --t-g6: linear-gradient(140deg, #7DE8FF, #35BFF5 55%, #06304A);
+  --t-film: #141414; --t-flat: #FF2D95; --t-flat-ink: #0A0A0A; --t-flat-cream: #F3F4F8;
+  --t-grain: .08; --t-shadow: rgba(0, 0, 0, .7);
+}
+/* Titular y acento comunes: el acento es cursiva serif en Cobalto y degradado en Neón. */
+.hd { font-family: var(--t-fd); font-weight: var(--t-hw); text-transform: var(--t-case); letter-spacing: var(--t-tr); }
+.hd em { font-style: var(--t-em-style); font-family: var(--t-em-font); font-size: var(--t-em-size); color: var(--t-acc-text); font-weight: inherit; text-transform: inherit; }
+[data-estilo="2"] .hd em { background: linear-gradient(90deg, var(--t-acc2), var(--t-acc)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Selector de estilo (tema.js lo crea) */
+.tema-sel { position: fixed; left: 14px; bottom: 14px; z-index: 200; display: flex; gap: 3px; padding: 4px; border-radius: 999px; background: color-mix(in srgb, var(--t-bg) 82%, transparent); backdrop-filter: blur(12px); border: 1px solid var(--t-line); font: 500 12px/1 var(--t-fb); }
+.tema-sel button { all: unset; cursor: pointer; padding: 9px 13px; border-radius: 999px; letter-spacing: .1em; text-transform: uppercase; color: var(--t-mut); transition: background .3s, color .3s; white-space: nowrap; }
+.tema-sel button:hover { color: var(--t-ink); }
+.tema-sel button[aria-pressed="true"] { background: var(--t-ink); color: var(--t-bg); }
+.tema-sel button:focus-visible { outline: 2px solid var(--t-acc); outline-offset: 2px; }
