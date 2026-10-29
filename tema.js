@@ -16,7 +16,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const s = document.createElement('div'); s.className = 'tema-sel'; s.setAttribute('role', 'group'); s.setAttribute('aria-label', 'Estilo de la página');
     s.innerHTML = Object.entries(N).map(([k, v]) => `<button data-n="${k}" aria-pressed="${k == n}">${k} ${v}</button>`).join('');
-    s.querySelectorAll('button').forEach(b => b.addEventListener('click', () => aplica(b.dataset.n)));
+    s.querySelectorAll('button').forEach(b => b.addEventListener('click', () => (document.startViewTransition ? document.startViewTransition(() => aplica(b.dataset.n)) : aplica(b.dataset.n))));
     document.body.append(s);
     document.addEventListener('keydown', e => { if (!e.ctrlKey && !e.metaKey && !e.altKey && N[e.key] && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) aplica(e.key); });
     aplica(root.dataset.estilo);
